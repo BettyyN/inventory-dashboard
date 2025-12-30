@@ -67,7 +67,7 @@ export default function InventoryCharts({ products }) {
   /* ---------------- UI ---------------- */
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-10 w-full overflow-x-hidden">
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 my-10 w-full overflow-x-hidden">
       {/* ================= Stock Status ================= */}
       <Card>
         <CardHeader>
