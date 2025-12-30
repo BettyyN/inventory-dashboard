@@ -25,23 +25,34 @@ A modern, responsive inventory management dashboard built with React, Vite, Tail
 1. **Clone the repository:**
 
 ```bash
+
 git clone https://github.com/BettyyN/inventory-dashboard.git
-Navigate to the project directory:
 
-bash
-Copy code
+```
+
+2. **Navigate to the project directory:**
+
+```bash
+
 cd <project-directory>
-Install dependencies:
 
-bash
-Copy code
+```
+3. **Install dependencies:**
+
+```bash
+
 npm install
-Start the development server:
 
-bash
-Copy code
+```
+
+4. **Start the development server**
+
+```bash
+
 npm run dev
-Open http://localhost:5173 in your browser.
+
+```
+5. Open http://localhost:5173 in your browser.
 
 The application runs entirely client-side using a mock API — no backend setup required.
 
