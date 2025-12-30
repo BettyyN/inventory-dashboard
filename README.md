@@ -56,13 +56,4 @@ npm run dev
 
 The application runs entirely client-side using a mock API — no backend setup required.
 
-Project Structure
-nix
-Copy code
-src/
-├── api/             # Mock API functions
-├── components/      # Reusable UI components
-├── App.jsx          # Main application component
-├── main.jsx         # Entry point
-└── index.css        # Global styles and theme
 The dashboard features a clean, component-based architecture with responsive design and consistent theming using Tailwind CSS and shadcn/ui components.
