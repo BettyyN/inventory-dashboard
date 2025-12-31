@@ -15,6 +15,16 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Eye, Edit, Trash2 } from "lucide-react";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
+
 
 const ITEMS_PER_PAGE = 5;
 
