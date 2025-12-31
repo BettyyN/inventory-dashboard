@@ -87,22 +87,29 @@ export default function ProductForm({ product, onSave, onClose }) {
         </Select>
       </div>
       {/* Quantity */}
+      {/* Quantity */}
       <div>
         <Label>Quantity</Label>
         <Input
-          type="number"
-          min="0"
-          value={form.quantity}
+          type="text"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          placeholder="0"
+          value={form.quantity === 0 ? "" : form.quantity.toString()}
           onChange={(e) => {
             let value = e.target.value;
+
+            value = value.replace(/[^0-9]/g, "");
+
             if (value === "" || value === "0") {
               setForm({ ...form, quantity: 0 });
             } else {
-              // Remove leading zeros
-              value = value.replace(/^0+/, "");
-              setForm({ ...form, quantity: Number(value) });
+              const cleaned = value.replace(/^0+/, "");
+              const finalValue = cleaned === "" ? 0 : Number(cleaned);
+              setForm({ ...form, quantity: finalValue });
             }
           }}
+          className="text-left"
         />
         {errors.quantity && (
           <p className="text-sm text-destructive mt-1">{errors.quantity}</p>
@@ -113,28 +120,33 @@ export default function ProductForm({ product, onSave, onClose }) {
       <div>
         <Label>Unit Price ($)</Label>
         <Input
-          type="number"
-          min="0.01"
-          step="0.01"
-          value={form.unitPrice}
+          type="text"
+          inputMode="decimal"
+          placeholder="0.00"
+          value={form.unitPrice === 0 ? "" : form.unitPrice.toString()}
           onChange={(e) => {
             let value = e.target.value;
-            if (value === "" || value === "0") {
+
+          
+            if (!/^\d*\.?\d*$/.test(value)) return;
+
+            if (value === "" || value === "0" || value === "0.") {
               setForm({ ...form, unitPrice: 0 });
             } else {
-              // Remove leading zeros before decimal point
+              let cleaned = value;
               if (value.includes(".")) {
                 const [whole, decimal] = value.split(".");
-                value =
-                  whole.replace(/^0+/, "") + (decimal ? "." + decimal : "");
-                if (value.startsWith(".")) value = "0" + value;
+                const cleanedWhole = whole.replace(/^0+/, "") || "0";
+                cleaned =
+                  cleanedWhole + (decimal !== undefined ? "." + decimal : "");
               } else {
-                value = value.replace(/^0+/, "");
+                cleaned = value.replace(/^0+/, "");
               }
-              if (value === "") value = "0";
+              const finalValue = cleaned === "" ? 0 : Number(cleaned);
+              setForm({ ...form, unitPrice: finalValue });
             }
-            setForm({ ...form, unitPrice: Number(value) });
           }}
+          className="text-left"
         />
         {errors.unitPrice && (
           <p className="text-sm text-destructive mt-1">{errors.unitPrice}</p>

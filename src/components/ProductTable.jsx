@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Eye, Edit, Trash2 } from "lucide-react";
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 5;
 
 const getStockStatus = (quantity) => {
   if (quantity === 0) return { text: "Out of Stock", variant: "destructive" };
